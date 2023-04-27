@@ -1,0 +1,15 @@
+TO GET FUND TRANSFER TRANSACTIONS FOR A MONTH
+
+use mcashpoint;
+select agents.account_name, ambassadors.account_name, transactions.amount, transaction_types.type 
+from agents join transactions on agents.user_id = transactions.user_id join ambassadors on agents.ambassador_id = ambassadors.id
+join transaction_types on transactions.transaction_type_id = transaction_types.id
+where transactions.status_code = 00 and transaction_types.id = 4 and system_date like "2023-03%";
+
+TO GET CASHOUT TRANSACTIONS FOR A MONTH
+
+use mcashpoint;
+select agents.account_name, ambassadors.account_name, transactions.amount, transaction_types.type 
+from agents join transactions on agents.user_id = transactions.user_id join ambassadors on agents.ambassador_id = ambassadors.id
+join transaction_types on transactions.transaction_type_id = transaction_types.id
+where transactions.status_code = 00 and transaction_types.id = 3 and system_date like "2023-03%";
